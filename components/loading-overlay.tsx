@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useMounted } from "@/lib/hooks/use-mounted";
@@ -13,6 +14,7 @@ export function LoadingOverlay() {
   const reduced = usePrefersReducedMotion();
   const [visible, setVisible] = React.useState(true);
   const initials = getInitials(profile.name, profile.monogram);
+  const avatar = profile.avatarSrc;
 
   React.useEffect(() => {
     if (!mounted || reduced) {
@@ -49,12 +51,16 @@ export function LoadingOverlay() {
               initial={{ scale: 0.92, opacity: 0.35 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.55, ease: [0.33, 1, 0.68, 1] }}
-              className="relative flex size-16 items-center justify-center overflow-hidden rounded-3xl border border-stone-500/25 bg-gradient-to-br from-amber-500/35 via-orange-500/25 to-rose-600/30 shadow-[0_22px_70px_-28px_rgba(234,88,12,0.55)]"
+              className="relative flex size-16 items-center justify-center overflow-hidden rounded-full border border-stone-500/25 bg-stone-900 shadow-[0_22px_70px_-28px_rgba(234,88,12,0.45)]"
             >
-              <span className="text-lg font-semibold tracking-tight text-primary-foreground">{initials}</span>
+              {avatar ? (
+                <Image src={avatar} alt="" width={64} height={64} className="size-full object-cover object-[center_22%]" />
+              ) : (
+                <span className="text-lg font-semibold tracking-tight text-primary-foreground">{initials}</span>
+              )}
               <motion.span
                 aria-hidden
-                className="absolute inset-0 rounded-3xl border border-white/25"
+                className="pointer-events-none absolute inset-0 rounded-full border border-white/20"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               />

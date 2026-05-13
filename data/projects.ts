@@ -1,9 +1,5 @@
 import type { Project } from "@/types/portfolio";
 
-/**
- * Замените ссылки на живые демо и репозитории, когда они будут готовы.
- * Картинки — стабильные фото с Unsplash (офис, команда, коворкинг).
- */
 export const projects: Project[] = [
   {
     id: "sapfir-engineering",
@@ -50,7 +46,7 @@ export const projects: Project[] = [
   {
     id: "alfa-tracker",
     title: "Таск-трекер",
-    subtitle: "Учебный проект · Альфа-Банк",
+    subtitle: "Учебный проект · Альфа-Банк · React",
     description:
       "Учебный сервис для постановки и ведения задач: списки, статусы, понятная навигация. Тренировка продуктового мышления в формате, близком к реальным внутренним тулзам банка.",
     problem:
@@ -60,8 +56,15 @@ export const projects: Project[] = [
       "Читаемая типографика и иерархия на плотных списках.",
       "Подготовка интерфейса к разным ширинам экрана.",
     ],
-    technologies: ["Vue.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "REST API"],
-    links: [{ label: "Подробности в резюме", href: "#contact", type: "other" }],
+    technologies: [
+      "React 18 + TypeScript",
+      "UnoCSS · кастомная тема",
+      "PrimeReact",
+      "Redux Toolkit",
+      "React Router DOM",
+      "Vite",
+    ],
+    links: [{ label: "Код на GitHub", href: "https://github.com/housesaroma/TaskTrackerAlpha", type: "github" }],
     featured: true,
     accent: "from-rose-500/25 via-amber-400/20 to-stone-500/20",
     media: {
@@ -91,7 +94,7 @@ export const projects: Project[] = [
   {
     id: "udv-org",
     title: "Дерево сотрудников",
-    subtitle: "Учебный проект · UDV",
+    subtitle: "Учебный проект · UDV · React",
     description:
       "Визуализация организационной структуры компании: узлы, связи, масштабирование информации. Упор на то, чтобы дерево оставалось читаемым при росте данных.",
     problem:
@@ -101,8 +104,15 @@ export const projects: Project[] = [
       "Визуальное разделение ролей и подразделений.",
       "Адаптив: удобный просмотр и на десктопе, и в дороге.",
     ],
-    technologies: ["Vue.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
-    links: [{ label: "Связаться", href: "#contact", type: "other" }],
+    technologies: [
+      "React 18 + TypeScript",
+      "UnoCSS · кастомная тема",
+      "PrimeReact",
+      "Redux Toolkit",
+      "React Router DOM",
+      "Vite",
+    ],
+    links: [{ label: "Код на GitHub", href: "https://github.com/housesaroma/udv-team-map", type: "github" }],
     featured: true,
     accent: "from-emerald-600/25 via-teal-500/15 to-amber-300/20",
     media: {
@@ -126,7 +136,7 @@ export const projects: Project[] = [
   {
     id: "brusnika-cowork",
     title: "Бронирование коворкингов",
-    subtitle: "Учебный проект · Брусника · УрФУ",
+    subtitle: "Учебный проект · Брусника · УрФУ · React",
     description:
       "Сервис онлайн-бронирования коворкингов университета: выбор слота, подтверждение, сценарии отмены. Важно было не перегрузить форму и оставить спокойный визуальный ритм.",
     problem:
@@ -136,8 +146,15 @@ export const projects: Project[] = [
       "Состояния загрузки, успеха и ошибки без паники в копирайте.",
       "Мобильный сценарий «забронировал по дороге в универ».",
     ],
-    technologies: ["Vue.js", "JavaScript", "HTML5", "CSS3", "REST API"],
-    links: [{ label: "Связаться", href: "#contact", type: "other" }],
+    technologies: [
+      "React 18 + TypeScript",
+      "UnoCSS · кастомная тема",
+      "PrimeReact",
+      "Redux Toolkit",
+      "React Router DOM",
+      "Vite",
+    ],
+    links: [{ label: "Код на GitHub", href: "https://github.com/housesaroma/coworking", type: "github" }],
     featured: true,
     accent: "from-stone-400/25 via-amber-200/15 to-orange-400/25",
     media: {

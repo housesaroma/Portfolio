@@ -3,6 +3,7 @@ import type { Profile } from "@/types/portfolio";
 export const profile: Profile = {
   name: "Яков Куликов",
   monogram: "ЯК",
+  avatarSrc: "/avatar.png",
   role: "Frontend-разработчик",
   headlineWords: ["интерфейсы", "продукт", "Vue и React", "внимание к деталям"],
   tagline:
@@ -114,26 +115,6 @@ export const profile: Profile = {
       highlights: [
         "Опыт мобильной разработки и релизного мышления: сценарии, состояния, устойчивость UI.",
       ],
-    },
-  ],
-  achievements: [
-    {
-      id: "commercial",
-      title: "Коммерческий продукт",
-      description: "Год в «САПФИР-ИНЖИНИРИНГ»: реальный корпоративный фронт, мобильная версия и PrimeVue в бою.",
-      metric: "Vue 3",
-    },
-    {
-      id: "bank",
-      title: "Учебный кейс с Альфа-Банком",
-      description: "Таск-трекер как учебный продуктовый формат: задачи, статусы, сроки.",
-      metric: "5 мес.",
-    },
-    {
-      id: "edu",
-      title: "УрФУ · РТФ",
-      description: "Программная инженерия, выпуск 2027. Проекты с индустриальными партнёрами в рамках учёбы.",
-      metric: "2027",
     },
   ],
   stats: [

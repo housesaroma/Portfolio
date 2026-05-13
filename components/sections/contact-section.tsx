@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
 import { Check, Copy, Phone } from "lucide-react";
 
 import { profile } from "@/data/profile";
@@ -74,15 +73,6 @@ export function ContactSection() {
                   )}
                 </Button>
               </div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="text-xs leading-relaxed text-muted-foreground"
-              >
-                Резюме на hh.ru: замените ссылку в <code className="rounded-md bg-stone-950/50 px-2 py-1 text-[11px]">data/socials.ts</code>. PDF лежит в{" "}
-                <code className="rounded-md bg-stone-950/50 px-2 py-1 text-[11px]">public/cv.pdf</code> (уже скопирован из вашего файла, при необходимости обновите).
-              </motion.p>
             </div>
           </div>
         </div>

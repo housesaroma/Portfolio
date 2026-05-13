@@ -21,8 +21,7 @@ export function WorkSectionIntro() {
           Не «для галочки», а то, чем реально занимался.
         </h2>
         <p className="text-lg leading-relaxed text-muted-foreground">
-          Здесь {featured.length} блока: коммерческий Vue-продукт и учебные сервисы с партнёрами. Тексты, медиа и ссылки меняются в{" "}
-          <code className="rounded-md bg-stone-950/50 px-2 py-1 text-xs">data/projects.ts</code>.
+          {featured.length} направления: коммерческий продукт на Vue и учебные сервисы совместно с компаниями-партнёрами.
         </p>
       </motion.div>
     </div>

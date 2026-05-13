@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { motion } from "framer-motion";
@@ -22,18 +23,32 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false);
   const initials = getInitials(profile.name, profile.monogram);
+  const avatar = profile.avatarSrc;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-stone-500/15 bg-background/75 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="#hero" className="group inline-flex items-center gap-2">
-          <span className="relative flex size-9 items-center justify-center overflow-hidden rounded-2xl border border-stone-500/30 bg-gradient-to-br from-amber-500/35 via-orange-500/25 to-rose-600/25 shadow-[0_12px_40px_-14px_rgba(234,88,12,0.45)]">
-            <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.35),transparent_55%)] opacity-50 mix-blend-overlay" />
-            <span className="relative text-xs font-semibold tracking-tight text-primary-foreground">{initials}</span>
-          </span>
-          <div className="hidden flex-col sm:flex">
-            <span className="text-sm font-semibold tracking-tight">{profile.name}</span>
-            <span className="text-xs text-muted-foreground">{profile.role}</span>
+        <Link href="#hero" className="group inline-flex min-w-0 items-center gap-3">
+          {avatar ? (
+            <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-stone-500/30 ring-2 ring-stone-900/80">
+              <Image
+                src={avatar}
+                alt={profile.name}
+                width={36}
+                height={36}
+                className="size-full object-cover object-[center_22%]"
+                priority
+              />
+            </span>
+          ) : (
+            <span className="relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-stone-500/30 bg-gradient-to-br from-amber-500/35 via-orange-500/25 to-rose-600/25 shadow-[0_12px_40px_-14px_rgba(234,88,12,0.45)]">
+              <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.35),transparent_55%)] opacity-50 mix-blend-overlay" />
+              <span className="relative text-xs font-semibold tracking-tight text-primary-foreground">{initials}</span>
+            </span>
+          )}
+          <div className="hidden min-w-0 flex-col sm:flex">
+            <span className="truncate text-sm font-semibold tracking-tight">{profile.name}</span>
+            <span className="truncate text-xs text-muted-foreground">{profile.role}</span>
           </div>
         </Link>
 

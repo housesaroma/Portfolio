@@ -4,10 +4,6 @@ import { profile } from "./profile";
 
 const phoneHref = profile.phone ? `tel:${profile.phone.replace(/\s/g, "")}` : "#contact";
 
-/**
- * Замените ссылку HeadHunter на прямую ссылку на резюме с hh.ru.
- * Файл `public/cv.pdf` — для кнопки «Скачать резюме» (можно скопировать PDF в проект).
- */
 export const socials: SocialLink[] = [
   {
     id: "phone",
@@ -26,8 +22,8 @@ export const socials: SocialLink[] = [
   {
     id: "hh",
     platform: "website",
-    label: "HeadHunter",
-    href: "https://hh.ru",
+    label: "Резюме на hh.ru",
+    href: "https://ekaterinburg.hh.ru/resume/5e57c187ff1056d9ee0039ed1f457032794545",
     icon: "website",
   },
 ];

@@ -32,13 +32,6 @@ export interface ExperienceEntry {
   highlights: string[];
 }
 
-export interface Achievement {
-  id: string;
-  title: string;
-  description: string;
-  metric?: string;
-}
-
 export interface StatHighlight {
   id: string;
   label: string;
@@ -50,6 +43,8 @@ export interface Profile {
   name: string;
   /** Инициалы для логотипа (например «ЯК»), если не заданы — берутся из имени */
   monogram?: string;
+  /** Путь к фото для шапки и героя (public/) */
+  avatarSrc?: string;
   /** Short tagline under name */
   role: string;
   /** Hero rotating / emphasized words */
@@ -67,7 +62,6 @@ export interface Profile {
   email: string;
   skills: SkillCategory[];
   experience: ExperienceEntry[];
-  achievements: Achievement[];
   stats: StatHighlight[];
   techStack: string[];
 }
