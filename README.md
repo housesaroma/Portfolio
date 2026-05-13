@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Портфолио · Яков Куликов
 
-## Getting Started
+Сайт на Next.js (App Router), Tailwind CSS v4, Framer Motion. Контент вынесен в `data/*.ts`.
 
-First, run the development server:
+## Запуск
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Редактирование контента
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **`data/profile.ts`** — имя, роль, биография, опыт, навыки, стек, контакты, ссылка на резюме.
+- **`data/projects.ts`** — проекты: описания, задачи, фичи, технологии, ссылки, картинки.
+- **`data/socials.ts`** — телефон, почта, HeadHunter. **Замените `href` у HeadHunter** на прямую ссылку на ваше резюме с hh.ru (скопируйте из браузера).
 
-## Learn More
+## Резюме PDF
 
-To learn more about Next.js, take a look at the following resources:
+Файл **`public/cv.pdf`** — сюда положите актуальный PDF (у вас уже скопирован `cv (1).pdf` из загрузок как `cv.pdf`). Кнопка «Скачать резюме» ведёт на `/cv.pdf`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Проверки
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+npm run build
+```
 
-## Deploy on Vercel
+## Netlify
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Настройки в `netlify.toml`. Подключите репозиторий в Netlify, сборка: `npm run build`, плагин `@netlify/plugin-nextjs` подхватит App Router.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Дизайн (что изменилось для «живости»)
+
+- Тёплая палитра (янтарь / терракота вместо «холодного» cyan‑glass).
+- Шрифты с кириллицей: **Manrope** + **Onest** (заголовки), **IBM Plex Mono** для кода.
+- Лёгкая виньетка на фоне, более тихая сетка, мягче spotlight.
+- Карточки и рамки ближе к «бумаге / камню», чуть асимметричный дрейф сетки и микродвижения тегов стека.
