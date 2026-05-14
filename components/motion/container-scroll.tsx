@@ -148,7 +148,7 @@ export function ContainerScroll({
           >
             <div
               className={cn(
-                "relative rounded-[32px] border border-stone-500/20 bg-gradient-to-b from-stone-400/10 via-stone-900/20 to-transparent p-[1px] shadow-[0_40px_100px_-50px_rgba(40,25,15,0.65)] backdrop-blur-xl",
+                "relative rounded-[32px] border border-stone-300/60 bg-gradient-to-b from-stone-100/50 via-stone-50/30 to-transparent p-[1px] shadow-md backdrop-blur-xl dark:border-stone-500/20 dark:from-stone-400/10 dark:via-stone-900/20 dark:to-transparent dark:shadow-[0_40px_100px_-50px_rgba(40,25,15,0.65)]",
                 tintClassName,
               )}
             >
@@ -157,7 +157,7 @@ export function ContainerScroll({
                 onMouseMove={handleMove}
                 onMouseLeave={pointer.reset}
                 className={cn(
-                  "relative overflow-hidden rounded-[30px] border border-stone-500/15 bg-card/50 shadow-inner",
+                  "relative overflow-hidden rounded-[30px] border border-stone-300/50 bg-card/90 shadow-inner dark:border-stone-500/15 dark:bg-card/50",
                   frameClassName,
                 )}
               >

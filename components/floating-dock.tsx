@@ -24,7 +24,7 @@ export function FloatingDock() {
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.35, duration: 0.55, ease: [0.33, 1, 0.68, 1] }}
-        className="pointer-events-auto flex items-center gap-2 rounded-full border border-stone-500/20 bg-background/75 px-3 py-2 shadow-[0_22px_70px_-32px_rgba(0,0,0,0.75)] backdrop-blur-2xl"
+        className="pointer-events-auto flex items-center gap-2 rounded-full border border-stone-300/65 bg-white/85 px-3 py-2 shadow-lg backdrop-blur-2xl dark:border-stone-500/20 dark:bg-background/75 dark:shadow-[0_22px_70px_-32px_rgba(0,0,0,0.75)]"
       >
         {dockItems.map((item) => {
           const Icon = item.icon;
@@ -35,17 +35,17 @@ export function FloatingDock() {
               aria-label={item.label}
               className={cn(
                 "group relative flex size-11 items-center justify-center rounded-2xl border border-transparent text-muted-foreground transition",
-                "hover:-translate-y-1 hover:border-stone-500/25 hover:bg-stone-950/40 hover:text-foreground",
+                "hover:-translate-y-1 hover:border-stone-400/80 hover:bg-stone-100/95 hover:text-foreground dark:hover:border-stone-500/25 dark:hover:bg-stone-950/40",
               )}
             >
               <Icon className="size-5" />
-              <span className="pointer-events-none absolute -top-9 left-1/2 hidden -translate-x-1/2 rounded-full border border-stone-500/20 bg-background/95 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground opacity-0 transition group-hover:opacity-100 md:block">
+              <span className="pointer-events-none absolute -top-9 left-1/2 hidden -translate-x-1/2 rounded-full border border-stone-300/70 bg-white/98 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground opacity-0 shadow-sm transition group-hover:opacity-100 dark:border-stone-500/20 dark:bg-background/95 md:block">
                 {item.label}
               </span>
             </Link>
           );
         })}
-        <div className="mx-1 h-8 w-px bg-stone-500/25" />
+        <div className="mx-1 h-8 w-px bg-stone-300/60 dark:bg-stone-500/25" />
         {quickSocials.map((social) => {
           const Icon = socialIcon(social.icon);
           const isMailOrTel = social.href.startsWith("mailto:") || social.href.startsWith("tel:");
@@ -55,7 +55,7 @@ export function FloatingDock() {
               href={social.href}
               {...(isMailOrTel ? {} : { target: "_blank", rel: "noreferrer" })}
               aria-label={social.label}
-              className="flex size-11 items-center justify-center rounded-2xl border border-transparent text-muted-foreground transition hover:-translate-y-1 hover:border-stone-500/25 hover:bg-stone-950/40 hover:text-foreground"
+              className="flex size-11 items-center justify-center rounded-2xl border border-transparent text-muted-foreground transition hover:-translate-y-1 hover:border-stone-400/80 hover:bg-stone-100/95 hover:text-foreground dark:hover:border-stone-500/25 dark:hover:bg-stone-950/40"
             >
               <Icon className="size-5" />
             </Link>

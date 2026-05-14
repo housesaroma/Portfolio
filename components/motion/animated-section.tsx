@@ -32,7 +32,7 @@ export function AnimatedStat({ value, label, hint }: { value: string; label: str
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="rounded-3xl border border-stone-500/20 bg-stone-950/35 p-6 backdrop-blur-xl"
+      className="rounded-3xl border border-stone-300/70 bg-white/90 p-6 shadow-sm backdrop-blur-xl dark:border-stone-500/20 dark:bg-stone-950/35 dark:shadow-none"
     >
       <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{label}</p>
       <p className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">{value}</p>

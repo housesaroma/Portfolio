@@ -5,13 +5,13 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2, MonitorPlay } from "lucide-react";
 
-import type { ProjectMedia as ProjectMediaType, ProjectMediaItem, ProjectMedia } from "@/types/portfolio";
+import type { ProjectMedia, ProjectMediaItem } from "@/types/portfolio";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 interface ProjectMediaProps {
-  media: ProjectMediaType;
+  media: ProjectMedia;
   className?: string;
 }
 
@@ -19,7 +19,8 @@ type CarouselSlide =
   | { kind: "video"; id: string; src: string; poster?: string }
   | { kind: "image"; item: ProjectMediaItem };
 
-function buildCarouselSlides(media: ProjectMedia & { type: "carousel" }): CarouselSlide[] {
+function buildCarouselSlides(media: ProjectMedia): CarouselSlide[] {
+  if (media.type !== "carousel") return [];
   const slides: CarouselSlide[] = [];
   if (media.videoSrc) {
     slides.push({
@@ -50,7 +51,7 @@ export function ProjectMedia({ media, className }: ProjectMediaProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-24px" }}
             transition={{ duration: 0.45, delay: i * 0.04 }}
-            className="rounded-xl border border-stone-500/20 bg-stone-950/35 p-3.5 backdrop-blur-md sm:rounded-2xl sm:p-4"
+            className="rounded-xl border border-stone-300/70 bg-white/90 p-3.5 shadow-sm backdrop-blur-md dark:border-stone-500/20 dark:bg-stone-950/35 dark:shadow-none sm:rounded-2xl sm:p-4"
           >
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-xs sm:tracking-[0.22em]">
               {section.title}
@@ -83,7 +84,7 @@ export function ProjectMedia({ media, className }: ProjectMediaProps) {
             <Image src={poster} alt={media.items[0]?.alt ?? "Превью проекта"} fill className="object-cover" sizes="(max-width: 768px) 100vw, 80vw" priority />
           )
         )}
-        <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
+        <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-stone-300/45 dark:ring-white/10" />
       </div>
     );
   }
@@ -108,7 +109,7 @@ export function ProjectMedia({ media, className }: ProjectMediaProps) {
                 {media.items.slice(1, 4).map((item) => (
                   <div
                     key={item.id}
-                    className="h-16 w-28 overflow-hidden rounded-lg border border-white/10 bg-black/40 shadow-lg shadow-black/40 ring-1 ring-white/10"
+                    className="h-16 w-28 overflow-hidden rounded-lg border border-stone-400/60 bg-stone-200/60 shadow-md ring-1 ring-stone-400/40 dark:border-white/10 dark:bg-black/40 dark:shadow-lg dark:shadow-black/40 dark:ring-white/10"
                   >
                     <Image src={item.src} alt={item.alt} width={224} height={128} className="h-full w-full object-cover" />
                   </div>
@@ -130,21 +131,21 @@ export function ProjectMedia({ media, className }: ProjectMediaProps) {
   return (
     <div className={cn("relative aspect-[16/10] w-full overflow-hidden rounded-2xl", className)}>
       <Image src={item.src} alt={item.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 80vw" priority />
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-stone-300/45 dark:ring-white/10" />
     </div>
   );
 }
 
 function BrowserChrome({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-hidden rounded-[22px] border border-stone-500/20 bg-gradient-to-b from-stone-400/10 to-stone-950/40 shadow-[0_28px_90px_-40px_rgba(40,25,15,0.65)] backdrop-blur-xl">
-      <div className="flex items-center gap-2 border-b border-stone-500/15 bg-stone-950/50 px-4 py-3">
+    <div className="overflow-hidden rounded-[22px] border border-stone-300/70 bg-gradient-to-b from-stone-100/95 to-stone-200/80 shadow-md backdrop-blur-xl dark:border-stone-500/20 dark:from-stone-400/10 dark:to-stone-950/40 dark:shadow-[0_28px_90px_-40px_rgba(40,25,15,0.65)]">
+      <div className="flex items-center gap-2 border-b border-stone-300/60 bg-stone-50/95 px-4 py-3 dark:border-stone-500/15 dark:bg-stone-950/50">
         <div className="flex gap-1.5">
           <span className="size-2.5 rounded-full bg-red-400/90" />
           <span className="size-2.5 rounded-full bg-amber-300/90" />
           <span className="size-2.5 rounded-full bg-emerald-400/90" />
         </div>
-        <div className="mx-auto flex min-w-0 flex-1 items-center gap-2 rounded-full border border-stone-500/20 bg-stone-900/60 px-3 py-1 text-xs text-muted-foreground">
+        <div className="mx-auto flex min-w-0 flex-1 items-center gap-2 rounded-full border border-stone-300/70 bg-white/90 px-3 py-1 text-xs text-muted-foreground dark:border-stone-500/20 dark:bg-stone-900/60">
           <MonitorPlay className="size-3.5 shrink-0 text-primary" />
           <span className="truncate">localhost · черновик интерфейса</span>
         </div>
@@ -172,7 +173,7 @@ function CarouselNavButton({
       size="icon"
       variant="secondary"
       className={cn(
-        "rounded-full border border-white/10 bg-background/70 shadow-lg backdrop-blur-md hover:bg-background/90",
+        "rounded-full border border-stone-300/80 bg-white/95 shadow-md backdrop-blur-md hover:bg-stone-50 dark:border-white/10 dark:bg-background/70 dark:shadow-lg dark:hover:bg-background/90",
         className,
       )}
       onClick={onClick}
@@ -187,9 +188,10 @@ function ProjectCarousel({
   media,
   className,
 }: {
-  media: ProjectMedia & { type: "carousel" };
+  media: ProjectMedia;
   className?: string;
 }) {
+  if (media.type !== "carousel") return null;
   const slides = React.useMemo(() => buildCarouselSlides(media), [media]);
   const [index, setIndex] = React.useState(0);
   const [lightboxOpen, setLightboxOpen] = React.useState(false);
@@ -253,7 +255,7 @@ function ProjectCarousel({
 
   return (
     <div className={cn("relative", className)}>
-      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-muted/20 shadow-inner ring-1 ring-white/5">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-stone-300/60 bg-muted/50 shadow-inner ring-1 ring-stone-300/25 dark:border-white/10 dark:bg-muted/20 dark:ring-white/5">
         <AnimatePresence mode="wait">
           <motion.div
             key={active.kind === "video" ? active.id : active.item.id}
@@ -306,7 +308,7 @@ function ProjectCarousel({
               onClick={() => setIndex(i)}
               className={cn(
                 "h-1.5 rounded-full transition-all",
-                i === index ? "w-8 bg-primary" : "w-2 bg-white/30 hover:bg-white/50",
+                i === index ? "w-8 bg-primary" : "w-2 bg-stone-400/60 hover:bg-stone-500/80 dark:bg-white/30 dark:hover:bg-white/50",
               )}
             />
           ))}
@@ -317,7 +319,7 @@ function ProjectCarousel({
             type="button"
             size="icon"
             variant="secondary"
-            className="size-9 rounded-full border border-white/10 bg-background/70 backdrop-blur-md hover:bg-background/90 sm:size-10"
+            className="size-9 rounded-full border border-stone-300/80 bg-white/95 shadow-sm backdrop-blur-md hover:bg-stone-50 dark:border-white/10 dark:bg-background/70 dark:shadow-none dark:hover:bg-background/90 sm:size-10"
             aria-label="На весь экран"
             onClick={() => setLightboxOpen(true)}
           >
@@ -369,7 +371,7 @@ function ProjectCarousel({
                       }}
                     />
                     <div className="flex flex-wrap items-center justify-center gap-2">
-                      <span className="text-xs text-zinc-500">Скорость:</span>
+                      <span className="text-xs text-muted-foreground">Скорость:</span>
                       {PLAYBACK_RATES.map((rate) => (
                         <Button
                           key={rate}
@@ -399,7 +401,7 @@ function ProjectCarousel({
             </AnimatePresence>
           </div>
 
-          <div className="flex shrink-0 justify-center gap-1.5 border-t border-white/10 py-3">
+          <div className="flex shrink-0 justify-center gap-1.5 border-t border-stone-200/90 py-3 dark:border-white/10">
             {slides.map((slide, i) => (
               <button
                 key={`dot-${slide.kind === "video" ? slide.id : slide.item.id}`}
@@ -408,7 +410,7 @@ function ProjectCarousel({
                 onClick={() => setIndex(i)}
                 className={cn(
                   "h-1.5 rounded-full transition-all",
-                  i === index ? "w-8 bg-primary" : "w-2 bg-white/30 hover:bg-white/50",
+                  i === index ? "w-8 bg-primary" : "w-2 bg-stone-400/60 hover:bg-stone-500/80 dark:bg-white/30 dark:hover:bg-white/50",
                 )}
               />
             ))}

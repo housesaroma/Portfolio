@@ -42,7 +42,7 @@ export function ExperienceTimeline() {
                 </p>
               </div>
 
-              <div className="space-y-4 rounded-3xl border border-stone-500/20 bg-stone-950/30 p-6 backdrop-blur-xl">
+              <div className="space-y-4 rounded-3xl border border-stone-300/70 bg-white/90 p-6 shadow-sm backdrop-blur-xl dark:border-stone-500/20 dark:bg-stone-950/30 dark:shadow-none">
                 <p className="text-sm leading-relaxed text-muted-foreground">{item.summary}</p>
                 <ul className="space-y-3 text-sm text-foreground/90">
                   {item.highlights.map((highlight) => (

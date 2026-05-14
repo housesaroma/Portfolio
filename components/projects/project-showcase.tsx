@@ -42,11 +42,11 @@ function ShowcaseDetails({
       {betweenDescriptionAndCards}
 
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-        <div className="rounded-2xl border border-stone-500/20 bg-stone-950/30 p-4 backdrop-blur-md sm:p-5">
+        <div className="rounded-2xl border border-stone-300/70 bg-white/90 p-4 shadow-sm backdrop-blur-md dark:border-stone-500/20 dark:bg-stone-950/30 dark:shadow-none sm:p-5">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Задача</p>
           <p className="mt-2 text-sm leading-relaxed text-foreground/90 sm:mt-3">{project.problem}</p>
         </div>
-        <div className="rounded-2xl border border-stone-500/20 bg-stone-950/30 p-4 backdrop-blur-md sm:p-5">
+        <div className="rounded-2xl border border-stone-300/70 bg-white/90 p-4 shadow-sm backdrop-blur-md dark:border-stone-500/20 dark:bg-stone-950/30 dark:shadow-none sm:p-5">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Что сделано</p>
           <ul className="mt-2 space-y-1.5 text-sm text-foreground/90 sm:mt-3 sm:space-y-2">
             {project.features.map((feature) => (

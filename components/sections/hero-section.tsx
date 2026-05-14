@@ -37,7 +37,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-flex w-fit max-w-full items-center gap-2 rounded-2xl border border-stone-500/25 bg-stone-950/40 px-4 py-2.5 text-xs uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md sm:rounded-full sm:tracking-[0.28em]"
+          className="inline-flex w-fit max-w-full items-center gap-2 rounded-2xl border border-stone-300/70 bg-white/90 px-4 py-2.5 text-xs uppercase tracking-[0.2em] text-muted-foreground shadow-sm backdrop-blur-md dark:border-stone-500/25 dark:bg-stone-950/40 dark:shadow-none sm:rounded-full sm:tracking-[0.28em]"
         >
           <Sparkles className="size-3.5 shrink-0 text-primary" />
           <span className="leading-snug">{profile.availability}</span>
@@ -63,7 +63,7 @@ export function HeroSection() {
                   transition={{ duration: 0.65, delay: 0.08, ease: [0.33, 1, 0.68, 1] }}
                   className="mx-auto shrink-0 sm:mx-0 sm:hidden"
                 >
-                  <div className="relative aspect-square w-40 overflow-hidden rounded-3xl border border-stone-500/25 bg-stone-900 shadow-[0_28px_80px_-36px_rgba(0,0,0,0.65)] ring-1 ring-white/10">
+                  <div className="relative aspect-square w-40 overflow-hidden rounded-3xl border border-stone-300/70 bg-stone-100 shadow-md ring-1 ring-stone-300/40 dark:border-stone-500/25 dark:bg-stone-900 dark:shadow-[0_28px_80px_-36px_rgba(0,0,0,0.65)] dark:ring-white/10">
                     <Image
                       src={avatar}
                       alt={`${profile.name} — фото`}
@@ -122,7 +122,7 @@ export function HeroSection() {
                   </GradientButton>
                 </MagneticButton>
                 {profile.resumeUrl ? (
-                  <Button asChild variant="secondary" size="lg" className="rounded-full border border-stone-500/25 bg-stone-950/35 backdrop-blur">
+                  <Button asChild variant="secondary" size="lg" className="rounded-full border border-stone-300/80 bg-white/90 shadow-sm backdrop-blur dark:border-stone-500/25 dark:bg-stone-950/35 dark:shadow-none">
                     <a href={profile.resumeUrl} download>
                       Скачать резюме (PDF)
                     </a>
@@ -140,7 +140,7 @@ export function HeroSection() {
                   <MapPin className="size-4 shrink-0 text-primary" />
                   {profile.location}
                 </span>
-                <div className="hidden h-4 w-px bg-stone-500/30 sm:block" />
+                <div className="hidden h-4 w-px bg-stone-300/70 sm:block dark:bg-stone-500/30" />
                 <div className="flex flex-wrap gap-3">
                   {socials.map((social) => {
                     const Icon = socialIcon(social.icon);
@@ -150,7 +150,7 @@ export function HeroSection() {
                         key={social.id}
                         href={social.href}
                         {...(isMailOrTel ? {} : { target: "_blank", rel: "noreferrer" })}
-                        className="inline-flex size-11 items-center justify-center rounded-2xl border border-stone-500/25 bg-stone-950/35 text-foreground transition hover:border-primary/45 hover:text-primary"
+                        className="inline-flex size-11 items-center justify-center rounded-2xl border border-stone-300/70 bg-white/90 text-foreground shadow-sm transition hover:border-primary/45 hover:text-primary dark:border-stone-500/25 dark:bg-stone-950/35 dark:shadow-none"
                         aria-label={social.label}
                       >
                         <Icon className="size-5" />
@@ -168,7 +168,7 @@ export function HeroSection() {
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.33, 1, 0.68, 1] }}
                 className="relative mx-auto hidden w-full max-w-[280px] shrink-0 sm:mx-0 sm:block sm:max-w-[min(100%,320px)] lg:max-w-[360px]"
               >
-                <div className="relative aspect-square overflow-hidden rounded-[28px] border border-stone-500/25 bg-stone-900 shadow-[0_36px_100px_-40px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
+                <div className="relative aspect-square overflow-hidden rounded-[28px] border border-stone-300/70 bg-stone-100 shadow-lg ring-1 ring-stone-300/40 dark:border-stone-500/25 dark:bg-stone-900 dark:shadow-[0_36px_100px_-40px_rgba(0,0,0,0.7)] dark:ring-white/10">
                   <Image
                     src={avatar}
                     alt={`${profile.name} — фото`}

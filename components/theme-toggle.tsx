@@ -16,7 +16,7 @@ export function ThemeToggle() {
         type="button"
         variant="secondary"
         size="icon"
-        className="rounded-full border border-stone-500/20 bg-stone-950/35"
+        className="rounded-full border border-stone-300/70 bg-white/90 dark:border-stone-500/20 dark:bg-stone-950/35"
         aria-label="Переключить тему"
         disabled
       >
@@ -32,7 +32,7 @@ export function ThemeToggle() {
       type="button"
       variant="secondary"
       size="icon"
-      className="rounded-full border border-stone-500/20 bg-stone-950/35"
+      className="rounded-full border border-stone-300/70 bg-white/90 dark:border-stone-500/20 dark:bg-stone-950/35"
       aria-label={isDark ? "Включить светлую тему" : "Включить тёмную тему"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >

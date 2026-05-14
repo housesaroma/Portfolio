@@ -64,7 +64,7 @@ export function CommandMenu() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-xl overflow-hidden border-stone-500/20 bg-background/95 p-0 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.75)] backdrop-blur-2xl">
+      <DialogContent className="max-w-xl overflow-hidden border border-stone-300/70 bg-card/98 p-0 shadow-xl backdrop-blur-2xl dark:border-stone-500/20 dark:bg-background/95 dark:shadow-[0_40px_120px_-40px_rgba(0,0,0,0.75)]">
         <DialogTitle className="sr-only">Командное меню</DialogTitle>
         <Command
           className={cn(
@@ -74,7 +74,7 @@ export function CommandMenu() {
             "[&_[cmdk-input]]:h-14 [&_[cmdk-item]]:px-3 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:size-4",
           )}
         >
-          <div className="flex items-center border-b border-stone-500/15 px-4">
+          <div className="flex items-center border-b border-stone-300/60 px-4 dark:border-stone-500/15">
             <TerminalSquare className="mr-3 text-primary" />
             <Command.Input
               placeholder="Раздел, проект или тема оформления…"
@@ -92,7 +92,7 @@ export function CommandMenu() {
                   key={item.id}
                   value={`${item.label} ${item.id}`}
                   onSelect={() => runCommand(() => goTo(item.href))}
-                  className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-500/15"
+                  className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-200/90 dark:aria-selected:bg-stone-500/15"
                 >
                   <ArrowRight className="text-primary" />
                   <span>{item.label}</span>
@@ -106,7 +106,7 @@ export function CommandMenu() {
                   key={project.id}
                   value={`${project.title} ${project.subtitle}`}
                   onSelect={() => runCommand(() => goTo(`#${project.id}`))}
-                  className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-500/15"
+                  className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-200/90 dark:aria-selected:bg-stone-500/15"
                 >
                   <Layers className="text-primary" />
                   <div className="flex flex-col">
@@ -123,7 +123,7 @@ export function CommandMenu() {
                   key={social.id}
                   value={`${social.label} ${social.platform}`}
                   onSelect={() => runCommand(() => openSocial(social.href))}
-                  className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-500/15"
+                  className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-200/90 dark:aria-selected:bg-stone-500/15"
                 >
                   <SocialGlyph platform={social.platform} />
                   <span>{social.label}</span>
@@ -135,7 +135,7 @@ export function CommandMenu() {
               <Command.Item
                 value="светлая тема"
                 onSelect={() => runCommand(() => setTheme("light"))}
-                className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-500/15"
+                className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-200/90 dark:aria-selected:bg-stone-500/15"
               >
                 <Sun className="text-amber-300" />
                 <span>Светлая</span>
@@ -144,7 +144,7 @@ export function CommandMenu() {
               <Command.Item
                 value="тёмная тема"
                 onSelect={() => runCommand(() => setTheme("dark"))}
-                className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-500/15"
+                className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-200/90 dark:aria-selected:bg-stone-500/15"
               >
                 <Moon className="text-orange-200/90" />
                 <span>Тёмная</span>
@@ -153,7 +153,7 @@ export function CommandMenu() {
               <Command.Item
                 value="системная тема"
                 onSelect={() => runCommand(() => setTheme("system"))}
-                className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-500/15"
+                className="flex cursor-pointer items-center gap-3 rounded-xl text-sm aria-selected:bg-stone-200/90 dark:aria-selected:bg-stone-500/15"
               >
                 <Layers className="text-muted-foreground" />
                 <span>Как в системе</span>
@@ -161,9 +161,9 @@ export function CommandMenu() {
               </Command.Item>
             </Command.Group>
           </Command.List>
-          <div className="flex items-center justify-between border-t border-stone-500/15 px-4 py-3 text-xs text-muted-foreground">
+          <div className="flex items-center justify-between border-t border-stone-300/60 px-4 py-3 text-xs text-muted-foreground dark:border-stone-500/15">
             <span>Стрелки · Enter — перейти</span>
-            <span className="rounded-full border border-stone-500/20 bg-stone-950/40 px-2 py-1 font-mono text-[10px]">⌘K</span>
+            <span className="rounded-full border border-stone-300/70 bg-stone-100/95 px-2 py-1 font-mono text-[10px] dark:border-stone-500/20 dark:bg-stone-950/40">⌘K</span>
           </div>
         </Command>
       </DialogContent>

@@ -33,12 +33,12 @@ export function GlowCard({ children, className }: GlowCardProps) {
       onMouseLeave={reset}
       style={{ rotateX, rotateY, transformPerspective: 1200 }}
       className={cn(
-        "group relative overflow-hidden rounded-3xl border border-stone-500/20 bg-gradient-to-br from-stone-400/8 via-stone-900/25 to-transparent p-[1px] shadow-[0_28px_100px_-52px_rgba(40,25,15,0.55)] backdrop-blur-xl",
+        "group relative overflow-hidden rounded-3xl border border-stone-300/70 bg-gradient-to-br from-stone-100/90 via-white/70 to-rose-100/35 p-[1px] shadow-md backdrop-blur-xl dark:border-stone-500/20 dark:from-stone-400/8 dark:via-stone-900/25 dark:to-transparent dark:shadow-[0_28px_100px_-52px_rgba(40,25,15,0.55)]",
         className,
       )}
     >
       <div className="pointer-events-none absolute inset-0 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_30%_20%,color-mix(in_oklch,var(--primary)_35%,transparent),transparent_65%)]" />
-      <div className="relative h-full rounded-[22px] border border-stone-500/15 bg-card/55 p-6 sm:p-8">{children}</div>
+      <div className="relative h-full rounded-[22px] border border-stone-300/50 bg-card/90 p-6 dark:border-stone-500/15 dark:bg-card/55 sm:p-8">{children}</div>
     </motion.div>
   );
 }

@@ -25,8 +25,8 @@ export function ContactSection() {
 
   return (
     <AnimatedSection id="contact" className="relative mx-auto max-w-6xl scroll-mt-28 px-4 py-24 sm:px-6 lg:px-8">
-      <div className="overflow-hidden rounded-[32px] border border-stone-500/20 bg-gradient-to-br from-amber-500/15 via-card/85 to-background p-[1px] shadow-[0_40px_100px_-48px_rgba(234,88,12,0.35)]">
-        <div className="relative rounded-[30px] border border-stone-500/15 bg-background/85 px-6 py-12 backdrop-blur-2xl sm:px-12 sm:py-16">
+      <div className="overflow-hidden rounded-[32px] border border-stone-300/70 bg-gradient-to-br from-amber-400/20 via-card/95 to-background p-[1px] shadow-md dark:border-stone-500/20 dark:from-amber-500/15 dark:via-card/85 dark:shadow-[0_40px_100px_-48px_rgba(234,88,12,0.35)]">
+        <div className="relative rounded-[30px] border border-stone-300/60 bg-background/92 px-6 py-12 backdrop-blur-2xl dark:border-stone-500/15 dark:bg-background/85 sm:px-12 sm:py-16">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_58%)]" />
           <div className="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div className="space-y-4">
@@ -38,7 +38,7 @@ export function ContactSection() {
                 Пишите на почту или звоните — отвечу по возможности в тот же день. Формат работы: полная занятость, гибрид или удалёнка, без переезда из Екатеринбурга.
               </p>
             </div>
-            <div className="space-y-5 rounded-3xl border border-stone-500/20 bg-stone-950/35 p-6 backdrop-blur-xl">
+            <div className="space-y-5 rounded-3xl border border-stone-300/70 bg-white/90 p-6 shadow-sm backdrop-blur-xl dark:border-stone-500/20 dark:bg-stone-950/35 dark:shadow-none">
               <div>
                 <p className="text-sm text-muted-foreground">Почта</p>
                 <p className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">{profile.email}</p>
@@ -59,7 +59,7 @@ export function ContactSection() {
                     Позвонить
                   </GradientButton>
                 ) : null}
-                <Button type="button" variant="secondary" className="rounded-full border border-stone-500/25 bg-stone-950/40" onClick={copy}>
+                <Button type="button" variant="secondary" className="rounded-full border border-stone-300/80 bg-white/90 shadow-sm dark:border-stone-500/25 dark:bg-stone-950/40 dark:shadow-none" onClick={copy}>
                   {copied ? (
                     <>
                       <Check className="size-4 text-emerald-400" />

@@ -30,7 +30,7 @@ export function GradientButton({ href, children, className, external }: Gradient
   };
 
   const classNames = cn(
-    "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-stone-500/25 bg-stone-950/40 px-5 py-2.5 text-sm font-medium text-foreground shadow-[0_0_0_1px_rgba(0,0,0,0.2)] backdrop-blur-md transition-transform hover:-translate-y-0.5",
+    "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-stone-300/80 bg-white/90 px-5 py-2.5 text-sm font-medium text-foreground shadow-sm backdrop-blur-md transition-transform hover:-translate-y-0.5 dark:border-stone-500/25 dark:bg-stone-950/40 dark:shadow-[0_0_0_1px_rgba(0,0,0,0.2)]",
     className,
   );
 

@@ -26,11 +26,11 @@ export function SiteHeader() {
   const avatar = profile.avatarSrc;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-stone-500/15 bg-background/75 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-stone-300/60 bg-background/85 backdrop-blur-xl dark:border-stone-500/15 dark:bg-background/75">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="#hero" className="group inline-flex min-w-0 items-center gap-3">
           {avatar ? (
-            <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-stone-500/30 ring-2 ring-stone-900/80">
+            <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-stone-400/50 ring-2 ring-stone-200/90 dark:border-stone-500/30 dark:ring-stone-900/80">
               <Image
                 src={avatar}
                 alt={profile.name}
@@ -57,7 +57,7 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 text-sm text-muted-foreground transition hover:bg-stone-500/10 hover:text-foreground"
+              className="rounded-full px-3 py-2 text-sm text-muted-foreground transition hover:bg-stone-200/70 hover:text-foreground dark:hover:bg-stone-500/10"
             >
               {link.label}
             </Link>
@@ -65,17 +65,19 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <span className="hidden items-center gap-2 rounded-full border border-stone-500/20 bg-stone-950/35 px-3 py-1 text-[11px] text-muted-foreground lg:inline-flex">
+          <span className="hidden items-center gap-2 rounded-full border border-stone-300/70 bg-white/90 px-3 py-1 text-[11px] text-muted-foreground shadow-sm dark:border-stone-500/20 dark:bg-stone-950/35 dark:shadow-none lg:inline-flex">
             <CommandIcon className="size-3.5 text-primary" />
             <span>Поиск</span>
-            <kbd className="rounded-md border border-stone-500/25 bg-stone-900/80 px-1.5 py-0.5 font-mono text-[10px] text-foreground/85">⌘K</kbd>
+            <kbd className="rounded-md border border-stone-300/70 bg-stone-100/95 px-1.5 py-0.5 font-mono text-[10px] text-foreground/85 dark:border-stone-500/25 dark:bg-stone-900/80">
+              ⌘K
+            </kbd>
           </span>
           <ThemeToggle />
           <Button
             type="button"
             variant="secondary"
             size="icon"
-            className="rounded-full border border-stone-500/20 bg-stone-950/35 md:hidden"
+            className="rounded-full border border-stone-300/70 bg-white/90 shadow-sm dark:border-stone-500/20 dark:bg-stone-950/35 dark:shadow-none md:hidden"
             onClick={() => setOpen((value) => !value)}
             aria-label={open ? "Закрыть меню" : "Открыть меню"}
           >
@@ -87,14 +89,14 @@ export function SiteHeader() {
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        className="border-t border-stone-500/15 bg-background/95 md:hidden"
+        className="border-t border-stone-300/60 bg-background/98 dark:border-stone-500/15 dark:bg-background/95 md:hidden"
       >
         <div className={cn("flex flex-col gap-1 px-4 py-3", !open && "pointer-events-none")}>
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-2xl px-3 py-3 text-sm text-foreground/90"
+              className="rounded-2xl px-3 py-3 text-sm text-foreground/90 transition hover:bg-stone-100/90 dark:hover:bg-stone-500/10"
               onClick={() => setOpen(false)}
             >
               {link.label}
