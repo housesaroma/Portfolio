@@ -57,12 +57,13 @@ export const projects: Project[] = [
             "Раздел аналитики: сортировки и исключение столбцов из расчёта.",
         ],
         technologies: [
-            "React 18 + TypeScript",
-            "UnoCSS · кастомная тема",
-            "PrimeReact",
-            "Redux Toolkit",
-            "React Router DOM",
+            "Vue 3",
+            "Composition API",
+            "Pinia",
             "Vite",
+            "PrimeVue",
+            "TypeScript",
+            "REST API",
         ],
         links: [
             {
