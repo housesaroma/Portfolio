@@ -20,25 +20,16 @@ export const projects: Project[] = [
     featured: true,
     accent: "from-amber-500/30 via-orange-500/15 to-rose-500/25",
     media: {
-      type: "browser",
-      items: [
+      type: "text",
+      items: [],
+      textSections: [
         {
-          id: "main",
-          src: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2000&q=80",
-          alt: "Команда разработчиков за работой в офисе",
-          aspectRatio: "wide",
+          title: "Роль и зона ответственности",
+          body: "Участие в развитии корпоративного веб-приложения: сложные таблицы и формы, диалоги, уведомления, выравнивание с внутренними гайдлайнами. Фокус на устойчивом UI, мобильной адаптации и аккуратном рефакторинге без «большого взрыва» для команды.",
         },
         {
-          id: "desk",
-          src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=80",
-          alt: "Рабочее место с ноутбуком и кодом на экране",
-          aspectRatio: "wide",
-        },
-        {
-          id: "phone",
-          src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
-          alt: "Мобильный телефон в руках пользователя",
-          aspectRatio: "video",
+          title: "Технический контекст",
+          body: "Клиент на Vue 3 (Composition API), Pinia, Vite, PrimeVue и TypeScript; интеграция с REST API. Работа велась в связке с бэкендом и аналитикой требований заказчика.",
         },
       ],
     },
@@ -69,6 +60,7 @@ export const projects: Project[] = [
     accent: "from-rose-500/25 via-amber-400/20 to-stone-500/20",
     media: {
       type: "carousel",
+      videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
       items: [
         {
           id: "board",
@@ -116,7 +108,8 @@ export const projects: Project[] = [
     featured: true,
     accent: "from-emerald-600/25 via-teal-500/15 to-amber-300/20",
     media: {
-      type: "browser",
+      type: "carousel",
+      videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
       items: [
         {
           id: "team",
@@ -159,6 +152,7 @@ export const projects: Project[] = [
     accent: "from-stone-400/25 via-amber-200/15 to-orange-400/25",
     media: {
       type: "carousel",
+      videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
       items: [
         {
           id: "cowork",

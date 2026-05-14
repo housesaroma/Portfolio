@@ -32,7 +32,7 @@ export default function Home() {
       <main className="relative pb-28">
         <HeroSection />
         <AboutSection />
-        <section id="work" className="relative scroll-mt-28">
+        <section id="work" className="relative scroll-mt-32 sm:scroll-mt-28">
           <WorkSectionIntro />
           {featuredProjects.map((project, index) => (
             <ProjectShowcase key={project.id} project={project} index={index} />

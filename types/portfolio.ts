@@ -66,7 +66,7 @@ export interface Profile {
   techStack: string[];
 }
 
-export type ProjectMediaType = "carousel" | "video" | "single" | "browser";
+export type ProjectMediaType = "carousel" | "video" | "single" | "browser" | "text";
 
 export interface ProjectMediaItem {
   id: string;
@@ -77,12 +77,23 @@ export interface ProjectMediaItem {
   aspectRatio?: "video" | "square" | "wide";
 }
 
+export interface ProjectTextSection {
+  title: string;
+  body: string;
+}
+
 export interface ProjectMedia {
   type: ProjectMediaType;
   items: ProjectMediaItem[];
   /** For video type — mp4 URL or leave empty to use first item as poster only */
   videoSrc?: string;
   posterSrc?: string;
+  /**
+   * Для carousel: при заданном `videoSrc` первый слайд — видео с автозапуском в превью, далее — только `items` (скриншоты).
+   * Постер видео: `posterSrc` или первый элемент `items` (как картинка-постер, без отдельного слайда-дубля).
+   * Для type "text" — `textSections` вместо демо (NDA и т.п.).
+   */
+  textSections?: ProjectTextSection[];
 }
 
 export interface ProjectLink {

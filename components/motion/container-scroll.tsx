@@ -111,10 +111,10 @@ export function ContainerScroll({
     mass: 0.35,
   });
 
-  const rotateX = useTransform(progress, [0, 0.45, 1], reducedMotion ? [0, 0, 0] : [18, 6, 0]);
-  const rotateZ = useTransform(progress, [0, 1], reducedMotion ? [0, 0] : [-1.2, 0]);
-  const translateY = useTransform(progress, [0, 1], reducedMotion ? [0, 0] : [-40, 72]);
-  const scale = useTransform(progress, [0, 0.55, 1], reducedMotion ? [1, 1, 1] : [0.92, 1, 1.02]);
+  const rotateX = useTransform(progress, [0, 0.45, 1], reducedMotion ? [0, 0, 0] : [8, 3, 0]);
+  const rotateZ = useTransform(progress, [0, 1], reducedMotion ? [0, 0] : [-0.6, 0]);
+  const translateY = useTransform(progress, [0, 1], reducedMotion ? [0, 0] : [-12, 56]);
+  const scale = useTransform(progress, [0, 0.55, 1], reducedMotion ? [1, 1, 1] : [0.94, 1, 1.02]);
   const opacity = useTransform(progress, [0, 0.2, 0.85, 1], [0.35, 1, 1, 0.92]);
 
   const pointer = useSmoothPointerMotion(reducedMotion ? 0 : parallaxStrength, reducedMotion);
@@ -128,11 +128,11 @@ export function ContainerScroll({
   return (
     <div
       ref={containerRef}
-      className={cn("relative flex min-h-[140vh] justify-center py-24 sm:py-32", className)}
+      className={cn("relative flex min-h-[110vh] justify-center py-14 sm:min-h-[130vh] sm:py-24 lg:min-h-[140vh] lg:py-32", className)}
       style={{ height: `${scrollMultiplier * 100}vh` }}
     >
-      <div className="sticky top-0 mx-auto flex h-screen w-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
-        <div className="relative w-full [perspective:1400px]">
+      <div className="sticky top-0 z-0 mx-auto flex max-h-[100svh] min-h-0 w-full max-w-6xl flex-col justify-start gap-5 overflow-y-auto overscroll-y-contain px-4 pb-8 pt-6 sm:gap-7 sm:px-6 sm:pb-12 sm:pt-10 lg:h-screen lg:max-h-none lg:justify-center lg:gap-8 lg:overflow-visible lg:px-8 lg:pb-0 lg:pt-0">
+        <div className="relative w-full shrink-0 [perspective:1400px]">
           <Header translate={translateY} titleComponent={titleComponent} />
 
           <motion.div
@@ -189,7 +189,7 @@ export const ContainerScrollTitle = ({
   titleComponent: string | React.ReactNode;
 }) => {
   return (
-    <motion.div style={{ y: translate }} className="mx-auto mb-10 max-w-4xl text-center">
+    <motion.div style={{ y: translate }} className="mx-auto mb-4 max-w-4xl shrink-0 px-1 text-center sm:mb-6 sm:px-2 md:mb-10">
       {typeof titleComponent === "string" ? (
         <h3 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
           {titleComponent}
