@@ -49,7 +49,7 @@ export const profile: Profile = {
       role: "Frontend-разработчик",
       company: "ООО «САПФИР-ИНЖИНИРИНГ»",
       location: "Екатеринбург",
-      period: "май 2025 — апрель 2026",
+      period: "май 2025 — настоящее время",
       summary: "Разработка и поддержка корпоративного веб-продукта для внутренних и внешних пользователей.",
       highlights: [
         "Стек: Vue 3, Composition API, Pinia, Vite.",
