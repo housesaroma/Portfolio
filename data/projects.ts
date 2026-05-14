@@ -42,7 +42,44 @@ export const projects: Project[] = [
             ],
         },
     },
-
+    {
+        id: "brusnika-flat-valuation",
+        title: "Оценка стоимости квартир",
+        subtitle: "Учебный проект · Брусника · React",
+        description:
+            "Веб-сервис для оценки рыночной стоимости жилья и сравнения с аналогами: карта домов и объявлений, прогноз ML, подбор похожих квартир, фильтры и сохранённые полигоны, тепловая карта и таблица аналитики.",
+        problem:
+            "Без карты и понятных сценариев пользователь не видит контекст рынка: где аналоги, насколько объявление близко к модельной оценке и как сузить выборку по району или параметрам квартиры.",
+        features: [
+            "Дома на карте, список квартир в доме, оценка и аналоги по выбранному объекту.",
+            "Оценка по параметрам, поиск по фильтрам и полигону, избранные полигоны и фильтры.",
+            "Тепловая карта с переключением режимов отображения.",
+            "Раздел аналитики: сортировки и исключение столбцов из расчёта.",
+        ],
+        technologies: [
+            "React 18 + TypeScript",
+            "UnoCSS · кастомная тема",
+            "PrimeReact",
+            "Redux Toolkit",
+            "React Router DOM",
+            "Vite",
+        ],
+        links: [
+            {
+                label: "Код на GitHub",
+                href: "https://github.com/housesaroma/brusnika-map",
+                type: "github",
+            },
+        ],
+        featured: true,
+        accent: "from-sky-500/20 via-stone-400/18 to-amber-400/22",
+        media: {
+            type: "carousel",
+            videoSrc: "/brusnikamap.mp4",
+            items: [
+            ],
+        },
+    },
     {
         id: "udv-org",
         title: "Дерево сотрудников",
@@ -75,8 +112,7 @@ export const projects: Project[] = [
         accent: "from-emerald-600/25 via-teal-500/15 to-amber-300/20",
         media: {
             type: "carousel",
-            videoSrc:
-                "/udvteammap.mp4",
+            videoSrc: "/udvteammap.mp4",
             items: [
                 {
                     id: "map",
@@ -127,13 +163,13 @@ export const projects: Project[] = [
                     alt: "Мои задачи",
                     aspectRatio: "wide",
                 },
-                                {
+                {
                     id: "diagram1",
                     src: "/tasktracker2.jpg",
                     alt: "Контрольная диаграмма",
                     aspectRatio: "wide",
                 },
-                                {
+                {
                     id: "diagram2",
                     src: "/tasktracker3.jpg",
                     alt: "Накопительная диаграмма",
@@ -174,52 +210,8 @@ export const projects: Project[] = [
         accent: "from-stone-400/25 via-amber-200/15 to-orange-400/25",
         media: {
             type: "carousel",
-            videoSrc:
-                "/coworking.mp4",
-            items: [
-            ],
-        },
-    },
-    {
-        id: "brusnika-flat-valuation",
-        title: "Оценка стоимости квартир",
-        subtitle: "Учебный проект · Брусника · УрФУ · React",
-        description:
-            "Веб-сервис для оценки рыночной стоимости жилья и сравнения с аналогами: карта домов и объявлений, прогноз ML, подбор похожих квартир, фильтры и сохранённые полигоны, тепловая карта и таблица аналитики. Фронтенд строится вокруг REST API `/v1/…` (карта, предсказание, поиск, избранное).",
-        problem:
-            "Без карты и понятных сценариев пользователь не видит контекст рынка: где аналоги, насколько объявление близко к модельной оценке и как сузить выборку по району или параметрам квартиры.",
-        features: [
-            "Главный экран: дома на карте, список квартир в доме, оценка и аналоги по выбранному объекту (модальные окна, слайдер аналогов).",
-            "Оценка по параметрам (форма и POST `/v1/prediction/flat-by-params`), поиск по фильтрам и полигону (POST `/v1/map/search`), избранные полигоны и фильтры (CRUD `/v1/saved/polygons`).",
-            "Тепловая карта по метаданным (GET `/v1/map/{city_id}/heatmap`) с переключением режимов отображения.",
-            "Раздел аналитики: таблица по GET `/v1/map/analytics-table`, сортировки и исключение столбцов из расчёта по ТЗ.",
-        ],
-        technologies: [
-            "React 18 + TypeScript",
-            "UnoCSS · кастомная тема",
-            "PrimeReact",
-            "Redux Toolkit",
-            "React Router DOM",
-            "Vite",
-            "REST API `/v1` (карта, ML-прогноз, избранное)",
-            "Карта: полигоны, маркеры, тепловой слой",
-        ],
-        links: [
-            {
-                label: "Код на GitHub",
-                href: "https://github.com/housesaroma/brusnika-flat-valuation",
-                type: "github",
-            },
-        ],
-        featured: true,
-        accent: "from-sky-500/20 via-stone-400/18 to-amber-400/22",
-        media: {
-            type: "carousel",
-            videoSrc: "/brusnika-valuation-demo.mp4",
-            items: [
-                // Добавьте скрины в public и раскомментируйте или допишите элементы:
-                // { id: "map-overview", src: "/brusnika-valuation-map.png", alt: "Карта домов и объявлений", aspectRatio: "wide" },
-            ],
+            videoSrc: "/coworking.mp4",
+            items: [],
         },
     },
 ];
