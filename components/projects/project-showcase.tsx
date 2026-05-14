@@ -81,6 +81,11 @@ function ShowcaseDetails({
   );
 }
 
+function defaultSectionMarginTop(index: number): string {
+  if (index === 0) return "mt-8 sm:mt-14";
+  return "mt-28 sm:mt-36 lg:mt-44";
+}
+
 export function ProjectShowcase({ project, index }: { project: Project; index: number }) {
   const title = (
     <div className="space-y-2 sm:space-y-4">
@@ -102,10 +107,12 @@ export function ProjectShowcase({ project, index }: { project: Project; index: n
     </div>
   );
 
+  const sectionMarginTop = project.layout?.sectionMarginTop ?? defaultSectionMarginTop(index);
+
   return (
     <section
       id={project.id}
-      className={cn("relative scroll-mt-28", index === 0 ? "mt-2 sm:mt-4" : "mt-12 sm:mt-20")}
+      className={cn("relative scroll-mt-28", sectionMarginTop, project.layout?.sectionClassName)}
     >
       <div
         className={cn(
@@ -119,6 +126,8 @@ export function ProjectShowcase({ project, index }: { project: Project; index: n
         scrollMultiplier={index % 2 === 0 ? 1.55 : 1.7}
         parallaxStrength={0.85}
         tintClassName={cn("bg-gradient-to-br", project.accent)}
+        className={project.layout?.containerScrollClassName}
+        titleWrapperClassName={project.layout?.titleWrapperClassName}
       >
         {project.media.type === "text" ? (
           <div className="mx-auto max-w-3xl px-4 py-6 sm:px-8 sm:py-10">

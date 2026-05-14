@@ -25,6 +25,8 @@ export interface ContainerScrollProps {
   parallaxStrength?: number;
   className?: string;
   frameClassName?: string;
+  /** Классы на обёртке заголовка над карточкой (отступы до контента). */
+  titleWrapperClassName?: string;
 }
 
 function useSmoothPointerMotion(strength: number, reducedMotion: boolean) {
@@ -95,6 +97,7 @@ export function ContainerScroll({
   parallaxStrength = 1,
   className,
   frameClassName,
+  titleWrapperClassName,
 }: ContainerScrollProps) {
   const reducedMotion = usePrefersReducedMotion();
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -133,7 +136,7 @@ export function ContainerScroll({
     >
       <div className="sticky top-0 z-0 mx-auto flex max-h-[100svh] min-h-0 w-full max-w-6xl flex-col justify-start gap-5 overflow-y-auto overscroll-y-contain px-4 pb-8 pt-6 sm:gap-7 sm:px-6 sm:pb-12 sm:pt-10 lg:h-screen lg:max-h-none lg:justify-center lg:gap-8 lg:overflow-visible lg:px-8 lg:pb-0 lg:pt-0">
         <div className="relative w-full shrink-0 [perspective:1400px]">
-          <Header translate={translateY} titleComponent={titleComponent} />
+          <Header translate={translateY} titleComponent={titleComponent} titleWrapperClassName={titleWrapperClassName} />
 
           <motion.div
             style={{
@@ -184,12 +187,21 @@ export function ContainerScroll({
 export const ContainerScrollTitle = ({
   translate,
   titleComponent,
+  titleWrapperClassName,
 }: {
   translate: MotionValue<number>;
   titleComponent: string | React.ReactNode;
+  titleWrapperClassName?: string;
 }) => {
   return (
-    <motion.div style={{ y: translate }} className="mx-auto mb-4 max-w-4xl shrink-0 px-1 text-center sm:mb-6 sm:px-2 md:mb-10">
+    <motion.div
+      style={{ y: translate }}
+      className={cn(
+        "mx-auto max-w-4xl shrink-0 px-2 text-center",
+        "mb-5 pb-3 sm:mb-7 sm:pb-4 md:mb-10 md:pb-5",
+        titleWrapperClassName,
+      )}
+    >
       {typeof titleComponent === "string" ? (
         <h3 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
           {titleComponent}
@@ -204,9 +216,11 @@ export const ContainerScrollTitle = ({
 export const Header = ({
   translate,
   titleComponent,
+  titleWrapperClassName,
 }: {
   translate: MotionValue<number>;
   titleComponent: string | React.ReactNode;
+  titleWrapperClassName?: string;
 }) => {
-  return <ContainerScrollTitle translate={translate} titleComponent={titleComponent} />;
+  return <ContainerScrollTitle translate={translate} titleComponent={titleComponent} titleWrapperClassName={titleWrapperClassName} />;
 };

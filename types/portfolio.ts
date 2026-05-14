@@ -102,6 +102,21 @@ export interface ProjectLink {
   type: "github" | "demo" | "case-study" | "other";
 }
 
+/** Необязательная подстройка отступов секции проекта (Tailwind-классы). */
+export interface ProjectLayout {
+  /**
+   * Верхний отступ всей секции (`margin-top`). Если не задан — считается по порядку проекта на странице.
+   * Пример: `mt-28 sm:mt-36`.
+   */
+  sectionMarginTop?: string;
+  /** Дополнительные классы на `<section>` (мердж с базовыми). */
+  sectionClassName?: string;
+  /** Классы на корневом контейнере `ContainerScroll` (дорожка скролла, `py-*`, `min-h-*`). */
+  containerScrollClassName?: string;
+  /** Классы на обёртке заголовка «Проект NN» над карточкой (отступ до рамки). */
+  titleWrapperClassName?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -114,4 +129,6 @@ export interface Project {
   media: ProjectMedia;
   featured: boolean;
   accent?: string;
+  /** Отступы и верстка секции; опционально, чтобы вручную подогнать отдельный проект. */
+  layout?: ProjectLayout;
 }
