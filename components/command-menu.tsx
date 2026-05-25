@@ -24,9 +24,11 @@ import { cn } from "@/lib/utils";
 const sections = [
   { id: "hero", label: "Старт", href: "#hero" },
   { id: "about", label: "Обо мне", href: "#about" },
+  { id: "workflow", label: "Как работаю", href: "#workflow" },
   { id: "work", label: "Проекты", href: "#work" },
   { id: "experience", label: "Опыт", href: "#experience" },
   { id: "stack", label: "Стек и цифры", href: "#stack" },
+  { id: "ai-hr", label: "AI для HR", href: "#ai-hr" },
   { id: "contact", label: "Контакты", href: "#contact" },
 ];
 

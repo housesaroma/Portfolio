@@ -5,6 +5,8 @@ import { BentoGrid } from "@/components/sections/bento-grid";
 import { ContactSection } from "@/components/sections/contact-section";
 import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { HeroSection } from "@/components/sections/hero-section";
+import { HrAiAssistant } from "@/components/sections/hr-ai-assistant";
+import { WorkflowSection } from "@/components/sections/workflow-section";
 import { WorkSectionIntro } from "@/components/sections/work-section-intro";
 import { CommandMenu } from "@/components/command-menu";
 import { FloatingDock } from "@/components/floating-dock";
@@ -32,6 +34,7 @@ export default function Home() {
       <main className="relative pb-28">
         <HeroSection />
         <AboutSection />
+        <WorkflowSection />
         <section id="work" className="relative scroll-mt-32 sm:scroll-mt-28">
           <WorkSectionIntro />
           {featuredProjects.map((project, index) => (
@@ -40,6 +43,7 @@ export default function Home() {
         </section>
         <ExperienceTimeline />
         <BentoGrid />
+        <HrAiAssistant />
         <ContactSection />
       </main>
       <SiteFooter />

@@ -14,9 +14,10 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "#about", label: "Обо мне" },
+  { href: "#workflow", label: "Подход" },
   { href: "#work", label: "Проекты" },
   { href: "#experience", label: "Опыт" },
-  { href: "#stack", label: "Стек" },
+  { href: "#ai-hr", label: "AI для HR" },
   { href: "#contact", label: "Контакты" },
 ];
 
